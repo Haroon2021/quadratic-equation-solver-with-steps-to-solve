@@ -14,19 +14,31 @@ form.addEventListener('submit', (e) => {
     const b = parseFloat(quadraticDataTransformed['b']);
     const c = parseFloat(quadraticDataTransformed['c']);
     
-    const determinant = (b*b)-(4*a*c);
+    const discriminant = (b*b)-(4*a*c);
     console.log(a);
     console.log(b);
     console.log(c);
-    console.log(determinant);
+    console.log(discriminant);
 
-    document.querySelector(".determinant").innerText = `The discriminant is: \n b^2 - 4ac \n ${b*b} - 4*${a}*${c} \n ${b*b} - ${4*a*c} `
-    if (determinant<0) {
-        document.querySelector(".answerhanger").innerText = `discriminant < 0 hence no real solutions` 
+    document.querySelector(".discriminant").innerText = `The discriminant is: \n b^2 - 4ac \n ${b*b} - 4*${a}*${c} \n ${b*b} - ${4*a*c} \n ${(b*b) - (4*a*c)} `
+    if (discriminant<0) {
         
-    } else if (determinant==0){
-        document.querySelector(".answerhanger").innerText = `discriminant = 0 hence we have one solution` 
+        if ((Math.sqrt(-1*discriminant)/(2*a)) == 1) {
+            document.querySelector(".answerhanger1").innerText = `discriminant < 0 hence no real solutions \n x1 = (-b+sqrt(discriminant))/2a \n x1 = (-${b}+isqrt(${(-1)*discriminant}))/2*${a} \n  x1 = (-${b}+i(${Math.sqrt((-1)*discriminant)}))/${2*a} \n  x1 = ${((-1)*b)/(2*a)}+i \n   `
+            document.querySelector(".answerhanger2").innerText = `\n x2 = (-b-sqrt(discriminant))/2a \n x2 = (-${b}-isqrt(${(-1)*discriminant}))/2*${a} \n  x2 = (-${b}-i(${Math.sqrt((-1)*discriminant)}))/${2*a} \n  x2 = ${((-1)*b)/(2*a)}-i \n   `
+        } else {
+            document.querySelector(".answerhanger1").innerText = `discriminant < 0 hence no real solutions \n x1 = (-b+sqrt(discriminant))/2a \n x1 = (-${b}+isqrt(${(-1)*discriminant}))/2*${a} \n  x1 = (-${b}+i(${Math.sqrt((-1)*discriminant)}))/${2*a} \n  x1 = ${((-1)*b)/(2*a)}+${(Math.sqrt((-1)*discriminant))/(2*a)}i \n   `
+            document.querySelector(".answerhanger2").innerText = `\n x2 = (-b-sqrt(discriminant))/2a \n x2 = (-${b}-isqrt(${(-1)*discriminant}))/2*${a} \n  x2 = (-${b}-i(${Math.sqrt((-1)*discriminant)}))/${2*a} \n  x2 = ${((-1)*b)/(2*a)}-${(Math.sqrt((-1)*discriminant))/(2*a)}i \n   `
+        }
+         
+
+    } else if (discriminant==0){
+
+        document.querySelector(".answerhanger1").innerText = `discriminant = 0 hence we have one solution \n x = (-b+sqrt(discriminant))/2a \n x = (-${b}+sqrt(${(-1)*discriminant}))/2*${a} \n  x = (-${b})/${2*a} \n  x = ${(-b)/(2*a)}` 
+    
     } else {
-        document.querySelector(".answerhanger").innerText = `discriminant > 0, hence we have 2 real solutions` 
+    
+        document.querySelector(".answerhanger1").innerText = `discriminant > 0, hence we have 2 real solutions \n x1 = (-b+sqrt(discriminant))/2a \n x1 = (-${b}+sqrt(${discriminant}))/2*${a} \n  x1 = (-${b}+(${Math.sqrt(discriminant)}))/${2*a} \n x1 = ((${(-1)*b + Math.sqrt(discriminant)}))/${2*a} \n  x1 = ${((-1)*b + Math.sqrt(discriminant))/(2*a)}` 
+        document.querySelector(".answerhanger2").innerText = `\n x2 = (-b-sqrt(discriminant))/2a \n x2 = (-${b}-sqrt(${discriminant}))/2*${a} \n  x2 = (-${b}-(${Math.sqrt(discriminant)}))/${2*a} \n x2 = ((${(-1)*b - Math.sqrt(discriminant)}))/${2*a} \n  x2 = ${((-1)*b - Math.sqrt(discriminant))/(2*a)}`
     }
 })
