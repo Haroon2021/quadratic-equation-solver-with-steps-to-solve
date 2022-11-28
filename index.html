@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+    <title>Quadratic equation solver</title>
+</head>
+<body>
+    <p>A quadratic equation can be written in the form:</p>
+    
+    <math>
+        <mrow>
+            <mrow>
+            <msup>
+                <mi>ax</mi>
+                <mn>2</mn>
+            </msup>
+                <mo>+</mo>
+            <mrow>
+                <mn>b</mn>
+                <mo>&InvisibleTimes;</mo>
+                <mi>x</mi>
+            </mrow>
+                <mo>+</mo>
+                <mn>c</mn>
+            </mrow>
+            <mo>=</mo>
+            <mn>0</mn>
+        </mrow>
+    </math>
+    <br>
+    <br>
+    The solution to the quadratic formula is:
+    <br>
+    <br>
+    <math>
+        <mrow>
+            <mi>x</mi>
+            <mo>=</mo>
+            <mfrac>
+              <mrow>
+                <mrow>
+                  <mo>-</mo>
+                  <mi>b</mi>
+                </mrow>
+                <mo>&PlusMinus;</mo>
+                <msqrt>
+                  <mrow>
+                    <msup>
+                      <mi>b</mi>
+                      <mn>2</mn>
+                    </msup>
+                    <mo>-</mo>
+                    <mrow>
+                      <mn>4</mn>
+                      <mo>&InvisibleTimes;</mo>
+                      <mi>a</mi>
+                      <mo>&InvisibleTimes;</mo>
+                      <mi>c</mi>
+                    </mrow>
+                  </mrow>
+                </msqrt>
+              </mrow>
+              <mrow>
+                <mn>2</mn>
+                <mo>&InvisibleTimes;</mo>
+                <mi>a</mi>
+              </mrow>
+            </mfrac>
+          </mrow>
+    </math>
+
+
+    <br><br>
+    Please enter your a b and c coefficents for the quadratic formula
+    <br><br>
+    <form>
+        <label id="avalue">Value for a </label>
+        <input type="text" id="aforlinearequation" name="a"><br><br>
+
+        <label id="bvalue">Value for b </label>
+        <input type="text" id="bforlinearequation" name="b"><br><br>
+
+        <label id="cvalue">Value for c </label>
+        <input type="text" id="cforlinearequation" name="c"><br><br>
+
+        <button type="submit" id = "calculateButton">Calculate</button>
+    </form>
+    <br>
+    <div class ="determinant"></div>
+    <br>
+    <div class ="answerhanger"></div>
+
+    <script src="app.js" defer ></script>
+
+</body>
+</html>
